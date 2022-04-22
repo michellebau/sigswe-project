@@ -1,19 +1,24 @@
-"""This file stores the data obtained from a specific artist"""
-# import random
+'''This file has the get_data function which fetches data from the Spotify API.'''
+import random
 import requests
 from auth import get_auth
 
+
 def get_data(artist_id):
-    """function that retrieces and stores the data"""
+    '''This function gets the data from the Spotify API.'''
     access_token = get_auth()
 
     headers = {
         'Authorization': 'Bearer {TOKEN}'.format(TOKEN=access_token)
     }
+
     URL = 'https://api.spotify.com/v1/artists/{id}/top-tracks'.format(id=artist_id)
     data = requests.get(URL + "?market=US", headers = headers)
+
     data = data.json()
-    rand = 2
+
+    rand = random.randint(0, len(data['tracks']) - 1)
+
     song_name = data['tracks'][rand]['name']
 
     artist_names = ''
@@ -29,6 +34,7 @@ def get_data(artist_id):
     spotify_url = data['tracks'][rand]['external_urls']['spotify']
 
     info = [song_name, artist_names, album_cover, preview_url, spotify_url]
+
     return info
 
 if __name__ == '__main__':

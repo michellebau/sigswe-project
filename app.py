@@ -8,7 +8,7 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 @app.route('/')
 def hello():
-    artist_list = ('6M2wZ9GZgrQXHCFfjv46we', '1Y8cdNmUJH7yBTd9yOvr5i', '0TImkz4nPqjegtVSMZnMRq')
+    artist_list = ('6M2wZ9GZgrQXHCFfjv46we', '1Y8cdNmUJH7yBTd9yOvr5i', '3Nrfpe0tUJi4K4DXYWgMUX', '5RmQ8k4l3HZ8JoPb4mNsML')
     
     rand = random.randint(0, len(artist_list) - 1)
 
