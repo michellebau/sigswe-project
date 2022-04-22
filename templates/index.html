@@ -1,20 +1,33 @@
+<!DOCTYPE html>
+<html>
+
 <head>
     <link rel="stylesheet" href={{ url_for( 'static' , filename='style.css' ) }} />
+    <title>Spotify Discovery</title>
 </head>
 
 <body>
-    <h1>Hello World!</h1>
-    <h1>The title is: {{title}}</h1>
+    <div class="main">
+        <img src={{album_cover}} width="25%" class="album">
+        <h2>{{song_name}}</h2>
+        <h3>{{artist_names}}</h3>
 
-    {% for item in items %}
-    <h2>{{item}}</h2>
-    {% endfor %}
 
-    {% if x == 1 %}
-    <h2>1</h2>
-    {% elif x == 2 %}
-    <h2>2</h2>
-    {% else %}
-    <h2>???</h2>
-    {% endif %}
+        <audio controls>
+            <source src={{preview_url}} type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
+
+        <a href={{spotify_url}} target="_blank"><img src="/static/images/icons8-spotify.svg" class="logo"></a>
+
+    </div>
 </body>
+
+
+
+
+
+
+
+</html>
